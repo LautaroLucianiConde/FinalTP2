@@ -1,12 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
-import usuarioRouter from "./prueba/src/routes/user.routes.js";
-
-
+import corredorRouter from "./final/src/routes/corredor.routes.js";
 
 const app = express();
 app.use(express.json());
 
+app.use("/", corredorRouter);
 
-app.use("/", usuarioRouter);
-
-app.listen(3000, () => console.log("Servidor corriendo en http://localhost:3000"));
+app.listen(process.env.PORT || 3000, () =>
+  console.log(`Servidor corriendo en http://localhost:${process.env.PORT || 3000}`)
+);

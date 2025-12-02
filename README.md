@@ -1,0 +1,5 @@
+Este proyecto es una API REST en Node.js con Express que permite registrar y actualizar la posición GPS de corredores de una maratón. Cada corredor se identifica por un ID alfanumérico de 6 caracteres y se almacena su última latitud y longitud. El sistema también detecta si hay corredores a menos de 50 metros de distancia utilizando la fórmula de Haversine.
+
+Para iniciar la aplicación, se deben instalar las dependencias con npm install, configurar un archivo .env con PORT=3000 y PERSISTENCIA=FS o PERSISTENCIA=MEM, y luego ejecutar npm run watch. La persistencia puede realizarse en archivo (corredores.json) o en memoria, según la configuración elegida.
+
+La API dispone de dos endpoints principales: POST /corredores para registrar o actualizar un corredor y recibir posibles alertas de proximidad, y GET /corredores para listar todos los corredores almacenados. El proyecto utiliza una arquitectura por capas con controlador, servicio, DAO (Factory) y utilidades para mantener una estructura clara y ordenada.
